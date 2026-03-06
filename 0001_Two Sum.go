@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-// https://leetcode.com/problems/two-sum/
+// O (n^2)
 func twoSum(nums []int, target int) []int {
     for i := range nums {
         for j := i + 1; j < len(nums); j++ {
@@ -12,6 +12,19 @@ func twoSum(nums []int, target int) []int {
         }
     }
     return nil
+}
+
+// O(n)
+func twoSum2(nums []int, target int) []int {
+	m := make(map[int]int)
+	for i, n := range nums {
+		delta := target - nums[i]
+		if j, exists := m[delta]; exists {
+			return []int{j, i}
+		}
+		m[n] = i
+	}
+	return nil
 }
 
 func main() {
