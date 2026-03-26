@@ -9,7 +9,7 @@ func longestCommonPrefix(strs []string) string {
 	fs := strs[0]
 	for fsi := 0; fsi < len(fs); fsi++ {
 		for i := 1; i < len(strs); i++ {
-			if fs[fsi]-strs[i][fsi] != 0 || fsi >= len(strs[i])-1 {
+			if fsi > len(strs[i])-1 || fs[fsi] != strs[i][fsi] {
 				return string(cp)
 			}
 		}
