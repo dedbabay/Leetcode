@@ -11,7 +11,9 @@ func isValid(s string) bool {
 	for _, c := range s {
 		if c == '[' || c == '{' || c == '(' {
 			a = append(a, c)
-		} else {
+        } else if len ( a ) == 0 {
+            return false
+        } else {
 			l := a[len(a)-1]
 			if (c == ']' && l != '[') ||
 				(c == ')' && l != '(') ||
