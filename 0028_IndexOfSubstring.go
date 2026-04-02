@@ -9,7 +9,7 @@ func strStr(haystack string, needle string) int {
 		return -1
 	}
 
-	for x := 0; x < len(haystack); x++ {
+	for x := 0; x < len(haystack) - len(needle) + 1; x++ {
 		eq := true
 		for i := x; i < x+len(needle); i++ {
 			if haystack[i] != needle[i-x] {
